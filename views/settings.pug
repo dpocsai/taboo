@@ -1,0 +1,18 @@
+extends layout
+
+block main
+  main
+    form(action="/" method="post")
+      dl
+        dt 
+          label(for="time-range") Time
+        dd 
+          input#time-range(type="range" name="time-range" min="30" max="90" value="60" step="15" oninput="changeTime(value)")
+          output#time(for="time-range") 60
+      dl 
+        dt
+          label(for="teams") Teams
+        dd 
+          input#team-range(type="range" name="team-range" min="2" max="4" value="2" step="1" oninput="changeTeams(value)")
+          output#teams(for="team-range") 2  
+

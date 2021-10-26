@@ -2,7 +2,35 @@ doctype html
 
 html(lang="en-US")
   head
-    title Todo App
+    title Taboo
+    meta(charset="UTF-8")
+    
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&display=swap" rel="stylesheet")
+    link(rel="stylesheet", href="/stylesheets/whitespace-reset.css")
+    link(rel="stylesheet", href="/stylesheets/style.css")
+    script(src="https://kit.fontawesome.com/ac87e4a60b.js" crossorigin="anonymous")
+    script(src="./javascripts/app.js")
   body
     header
-      h1 Taboo
+      a(href="/") 
+        h1 Taboo
+      nav
+        ul 
+          a(href="/rules") 
+            li Rules
+          a(href="/buzzer") 
+            li Buzzer
+          a(href="/settings") 
+            li Settings
+    block main
+      main 
+        a(href="/new-game")
+          i.fas.fa-play
+          button Play
+        a(href="scores")
+          i.fas.fa-table 
+          button Scores
+          
+
