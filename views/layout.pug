@@ -4,7 +4,6 @@ html(lang="en-US")
   head
     title Taboo
     meta(charset="UTF-8")
-    
     link(rel="preconnect" href="https://fonts.googleapis.com")
     link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
     link(href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&display=swap" rel="stylesheet")
@@ -18,19 +17,24 @@ html(lang="en-US")
         h1 Taboo
       nav
         ul 
+          a(href="/about") 
+            li About
           a(href="/rules") 
             li Rules
           a(href="/buzzer") 
             li Buzzer
-          a(href="/settings") 
-            li Settings
+          
     block main
       main 
-        a(href="/new-game")
-          i.fas.fa-play
-          button Play
-        a(href="scores")
-          i.fas.fa-table 
-          button Scores
+        section
+          a(href="/play")
+            i.fas.fa-play
+            button Play
+          a(href="/settings")
+            i.fas.fa-cog
+            button Settings
+          a(href="/scores")
+            i.fas.fa-table 
+            button Scores
           
 

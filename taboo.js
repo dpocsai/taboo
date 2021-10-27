@@ -5,6 +5,9 @@ const session = require("express-session");
 const { body, validationResult } = require("express-validator");
 const store = require("connect-loki");
 
+const TabooGame = require("./lib/taboo-game");
+const { ResultWithContext } = require("express-validator/src/chain");
+
 const app = express(); //sets up the express application object
 const port = process.env.PORT || "8000"; //what port to listen on
 const LokiStore = store(session);
@@ -30,15 +33,35 @@ app.use(
     store: new LokiStore({}),
   })
 );
-app.use(flash());
 
+app.use(flash());
+app.use((req, res, next) => {
+  console.log(req.session.tabooGame);
+  let tabooGame =
+    req.session.tabooGame || new TabooGame(60, 3, 2, ["Team 1", "Team 2"]);
+  req.session.tabooGame = tabooGame;
+  next();
+});
 app.get("/", (req, res) => {
   res.render("layout");
 });
 app.get("/settings", (req, res) => {
   res.render("settings");
 });
-
+app.post("/settings", (req, res) => {
+  let time = +req.body["time-range"];
+  let rounds = +req.body["rounds-range"];
+  let teams = +req.body["team-range"];
+  let teamsList = req.body.teams.map((team, idx) => {
+    team = team.trim();
+    return team === "" ? `Team ${idx + 1}` : team;
+  });
+  req.session.tabooGame = new TabooGame(time, rounds, teams, teamsList);
+  res.redirect("/");
+});
+app.get("/play", (req, res) => {
+  res.render("play", { tabooGame: req.session.tabooGame });
+});
 app.listen(port, () => {
   //tells express to listen for requests
   console.log(`listening to requests on http://localhost:${port}...`);

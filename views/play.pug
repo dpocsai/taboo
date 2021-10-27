@@ -1,0 +1,28 @@
+extends layout
+
+block main 
+  main 
+    .info
+      .team 
+        i.fas.fa-user-friends
+        p= tabooGame.teamsList[0]
+      div
+        i.fas.fa-clock 
+        p= tabooGame.time
+      div
+        i.fas.fa-spinner
+        p= `1/${tabooGame.rounds}`
+    .points 0
+    .card 
+      ul 
+        li.word Architect
+        li Create
+        li Build 
+        li House
+        li Home
+        li Design
+    .buttons
+      button.fas.fa-times-circle
+      button.fas.fa-check-circle
+    
+
