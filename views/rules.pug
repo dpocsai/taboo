@@ -1,0 +1,18 @@
+extends layout
+
+block main 
+  main.rules 
+    h2 Game setup:
+    p An even number of players are divided into teams of two. Each team allocates one person to be the "clue-giver", and the other person to be the "guesser". The task of the clue-giver is to describe the "clue-word" to the guesser, without saying any of the "taboo-words". The clue-word is located in the orange section at the top of each card. The taboo-words are located in the white section at the bottom of each card. Tap settings to change the name and number of teams, the number of rounds, and the allotted time for each round.
+
+    h2 Gameplay and scoring:
+    p The team highlighted in orange is the current team. Upon pressing START, the first card will be revealed, and the timer will begin to count down. The clue-giver should quickly begin describing the clue-word to the guesser. The teams not currently playing should watch and listen for rule breaks, pressing the buzzer if a rule is broken. If the clue-giver says any of the taboo-words, they must press the ( X ) incorrect button and 1 point is taken away. If the clue-giver is able to make the guesser guess the clue-word without saying any taboo-words, they must press the ( ✓ ) button and 1 point is given. The clue-guesser can skip a card at any time by pressing the X incorrect button, but 1 point is taken away for each skip. When the time runs out, the team's score for that round is added to their total score, displayed in the top left. After a complete round (when every team has gone once), teams should switch roles (i.e the guesser becomes the clue-giver and vice-versa)
+
+    h2 Rules:
+    ul 
+      li 1. Clue givers may not use any taboo words, including abbreviations or any part of the taboo word
+      li 2. Clue givers may not indicate how many words or letters long the clue word is
+      li 3. Clue-givers may not use sound effects or gestures 
+      li 4. Clue-givers may skip any card, at any time, but a point will be lost
+      li 5. If they time runs out before completing a card, the card is discarded and no points are lost or given
+      

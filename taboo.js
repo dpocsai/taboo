@@ -12,6 +12,20 @@ const app = express(); //sets up the express application object
 const port = process.env.PORT || "8000"; //what port to listen on
 const LokiStore = store(session);
 
+const generateTeams = (teams) => {
+  if (typeof teams === "string") {
+    teams = [teams];
+  }
+  return teams
+    .map((team, idx) => {
+      return team === "" ? `Team${idx + 1}` : team;
+    })
+    .map((teamName) => {
+      console.log(teamName);
+      return { name: teamName, score: 0 };
+    });
+};
+
 app.set("views", "./views"); //where to find view templates
 app.set("view engine", "pug"); //what view engine to use
 
@@ -36,9 +50,7 @@ app.use(
 
 app.use(flash());
 app.use((req, res, next) => {
-  console.log(req.session.tabooGame);
-  let tabooGame =
-    req.session.tabooGame || new TabooGame(60, 3, 2, ["Team 1", "Team 2"]);
+  let tabooGame = req.session.tabooGame || new TabooGame(60, 3, 1, ["Team 1"]);
   req.session.tabooGame = tabooGame;
   next();
 });
@@ -52,16 +64,25 @@ app.post("/settings", (req, res) => {
   let time = +req.body["time-range"];
   let rounds = +req.body["rounds-range"];
   let teams = +req.body["team-range"];
-  let teamsList = req.body.teams.map((team, idx) => {
-    team = team.trim();
-    return team === "" ? `Team ${idx + 1}` : team;
-  });
+  let teamsList = generateTeams(req.body.teams);
   req.session.tabooGame = new TabooGame(time, rounds, teams, teamsList);
-  res.redirect("/");
+  console.log(req.session.tabooGame.teamsList);
+  res.redirect("/play");
 });
+
 app.get("/play", (req, res) => {
   res.render("play", { tabooGame: req.session.tabooGame });
 });
+app.get("/rules", (req, res) => {
+  res.render("rules");
+});
+app.get("/about", (req, res) => {
+  res.redirect("https://en.wikipedia.org/wiki/Taboo_(game)");
+});
+app.get("/buzzer", (req, res) => {
+  res.render("buzzer");
+});
+
 app.listen(port, () => {
   //tells express to listen for requests
   console.log(`listening to requests on http://localhost:${port}...`);

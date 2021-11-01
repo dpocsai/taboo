@@ -20,16 +20,19 @@ block main
         dt
           label(for="teams") Teams
         dd 
-          input#team-range(type="range" name="team-range" min="2" max="4" value="2" step="1" oninput="changeTeams(value); disableTextInput(value)")
-          output#teams(for="team-range") 2
+          input#team-range(type="range" name="team-range" min="1" max="4" value="1" step="1" oninput="changeTeams(value); disableTextInput(value)")
+          output#teams(for="team-range") 1
       dl
         dd 
-          input(type="text" placeholder="Team 1" maxlength="10" name="teams" pattern="[a-zA-Z]{0,10}" title="Alphabetical letters only")
-        dd 
-          input(type="text" placeholder="Team 2" maxlength="10" name="teams" pattern="[a-zA-Z]{0,10}" title="Alphabetical letters only")
+          input(type="text" placeholder="Team1" maxlength="10" name="teams" pattern="[a-zA-Z]{0,10}" title="Alphabetical letters only")
         dd
-          input#textInput3.disabledTextInput(type="text" placeholder="Team 3" maxlength="10" name="teams" pattern="[a-zA-Z]{0,10}" title="Alphabetical letters only" disabled)
+          input#textInput2.disabledTextInput(type="text" placeholder="Team2" maxlength="10" name="teams" pattern="[a-zA-Z]{0,10}" title="Alphabetical letters only" disabled)
         dd
-          input#textInput4.disabledTextInput(type="text" placeholder="Team 4" maxlength="10" name="teams" pattern="[a-zA-Z]{0,10}" title="Alphabetical letters only" disabled )
+          input#textInput3.disabledTextInput(type="text" placeholder="Team3" maxlength="10" name="teams" pattern="[a-zA-Z]{0,10}" title="Alphabetical letters only" disabled)
+        dd
+          input#textInput4.disabledTextInput(type="text" placeholder="Team4" maxlength="10" name="teams" pattern="[a-zA-Z]{0,10}" title="Alphabetical letters only" disabled)    
       input(type="submit" value="Save")
+      
+
+         
 

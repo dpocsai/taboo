@@ -10,7 +10,6 @@ html(lang="en-US")
     link(rel="stylesheet", href="/stylesheets/whitespace-reset.css")
     link(rel="stylesheet", href="/stylesheets/style.css")
     script(src="https://kit.fontawesome.com/ac87e4a60b.js" crossorigin="anonymous")
-    script(src="./javascripts/app.js")
   body
     header
       a(href="/") 
@@ -21,8 +20,8 @@ html(lang="en-US")
             li About
           a(href="/rules") 
             li Rules
-          a(href="/buzzer") 
-            li Buzzer
+          a(href="/") 
+            li Home
           
     block main
       main 
@@ -33,8 +32,8 @@ html(lang="en-US")
           a(href="/settings")
             i.fas.fa-cog
             button Settings
-          a(href="/scores")
-            i.fas.fa-table 
-            button Scores
-          
+          a(href="/buzzer")
+            i.fas.fa-concierge-bell 
+            button Buzzer
+  script(src="./javascripts/app.js")        
 

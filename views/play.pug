@@ -3,26 +3,29 @@ extends layout
 block main 
   main 
     .info
-      .team 
+      .team
         i.fas.fa-user-friends
-        p= tabooGame.teamsList[0]
+        ul#teamDisplay
+          each team in tabooGame.teamsList
+            li= `${team.name} | ${team.score}`
       div
-        i.fas.fa-clock 
-        p= tabooGame.time
+        i.fas.fa-clock
+        p#timeDisplay= tabooGame.time
       div
-        i.fas.fa-spinner
-        p= `1/${tabooGame.rounds}`
+        i.fas.fa-sync-alt
+        p#roundsDisplay= `1/${tabooGame.rounds}`
     .points 0
-    .card 
-      ul 
-        li.word Architect
-        li Create
-        li Build 
-        li House
-        li Home
-        li Design
+    .card
+      ul
+        li.word
+        li
+        li
+        li 
+        li
+        li  
     .buttons
-      button.fas.fa-times-circle
-      button.fas.fa-check-circle
+      button.fas.fa-times-circle#incorrect(disabled)
+      button.start START
+      button.fas.fa-check-circle#correct(disabled)
     
 
