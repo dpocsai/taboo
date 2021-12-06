@@ -4,7 +4,8 @@
   "main": "taboo.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon taboo.js"
+    "start": "nodemon taboo.js",
+    "heroku-postbuild": "npm install --production"
   },
   "author": "",
   "license": "ISC",
@@ -12,6 +13,7 @@
   "description": "",
   "dependencies": {
     "connect-loki": "^1.2.0",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-flash": "^0.0.2",
     "express-session": "^1.17.2",
@@ -21,5 +23,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.14"
+  },
+  "engines": {
+    "node": "16.0.0",
+    "npm": "7.10.0"
   }
 }

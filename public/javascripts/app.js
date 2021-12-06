@@ -15,12 +15,34 @@ const roundsDisplay = document.querySelector("#roundsDisplay");
 const teamDisplay = document.querySelectorAll("#teamDisplay li");
 const buzzer = document.querySelector(".buzzer");
 
+
+
 const words = [
   ["Architect", "Create", "Build", "House", "Blueprint", "Design"],
   ["Mouse", "Cat", "Trap", "Cheese", "Tom & Jerry", "Animal"],
   ["Argument", "Fight", "Anger", "Yell", "Quarrel", "Couple"],
+  ["CITATION", "TICKET", "SPEEDING", "POLICE", "LAW", "PULL OVER"],
+  ["GOLF BALL", "TEE", "SWING", "CLUB", "IRON", "WOOD"],
+  ["SAIL", "VACATION", "FLY", "BOAT", "WATER", "OCEAN"],
+  ["BADGE", "COPS", "LAW", "RULES", "TICKET", "POLICE"],
+  ["FROG", "GREEN", "ANIMAL", "HOPS", "SLIMY", "LEAP"],
+  ["BLUSH", "RED", "MAKE-UP", "FACE", "EMBARRASED", "CHEEKS"],
+  ["TENNIS SHOES", "GYM", "SNEAKERS", "RUNNING", "FEET", "WEAR"],
+  ["SCARY MOVIE", "FRIGHT", "FUNNY", "COMEDY", "SEQUEL", "MOCK"],
+  ["VERIZON", "CELL", "PHONE", "WIRELESS", "NETWORK", "ROAM"],
+  ["WHATS UP", "GREETING", "HELLO", "HI", "DOING", "YOU"],
+  ["AUTHORITY", "POLICE", "COPS", "GOVERNMENT", "CHARGE", "FIGHT"],
+  ["SODA", "COKE", "POP", "DRINK", "CAN", "VENDING"],
+  ["CARBOHYDRATES", "NUTRITION", "SUGAR", "BREAD", "BEER", "ATKINS"],
 ];
-
+const makeCards = (str) => {
+  let arr = str.split("\n");
+  let cards = [];
+  for (let idx = 0; idx < arr.length - 5; idx += 6) {
+    cards.push(arr.slice(idx, idx + 6));
+  }
+  return cards;
+};
 //show values for range inputs in settings
 const changeTime = (time) => {
   timeRange.value = time;
