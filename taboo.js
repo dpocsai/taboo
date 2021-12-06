@@ -1,4 +1,3 @@
-const config = require("./lib/config");
 const express = require("express");
 const morgan = require("morgan");
 const flash = require("express-flash");
@@ -10,8 +9,6 @@ const TabooGame = require("./lib/taboo-game");
 const { ResultWithContext } = require("express-validator/src/chain");
 
 const app = express(); //sets up the express application object
-const port = config.PORT; //what port to listen on
-const host = config.HOST;
 const LokiStore = store(session);
 
 const generateTeams = (teams) => {
@@ -45,7 +42,7 @@ app.use(
     name: "taboo-session-id",
     resave: false,
     saveUninitialized: true,
-    secret: config.SECRET,
+    secret: "this is not very secure",
     store: new LokiStore({}),
   })
 );
@@ -85,7 +82,7 @@ app.get("/buzzer", (req, res) => {
   res.render("buzzer");
 });
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 3000, () => {
   //tells express to listen for requests
-  console.log(`listening to requests on http://localhost:${port}...`);
+  console.log(`listening to requests...`);
 });
