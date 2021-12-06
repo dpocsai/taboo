@@ -11,10 +11,11 @@ const { ResultWithContext } = require("express-validator/src/chain");
 const app = express(); //sets up the express application object
 const LokiStore = store(session);
 
-const generateTeams = (teams) => {
+const generateTeams = (teams = "team 1") => {
   if (typeof teams === "string") {
     teams = [teams];
   }
+  console.log(teams);
   return teams
     .map((team, idx) => {
       return team === "" ? `Team${idx + 1}` : team;
@@ -49,7 +50,7 @@ app.use(
 
 app.use(flash());
 app.use((req, res, next) => {
-  let tabooGame = req.session.tabooGame || new TabooGame(60, 3, 1, ["Team 1"]);
+  let tabooGame = req.session.tabooGame || new TabooGame(60, 3, 1, "Team 1");
   req.session.tabooGame = tabooGame;
   next();
 });

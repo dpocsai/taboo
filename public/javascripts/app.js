@@ -15,8 +15,6 @@ const roundsDisplay = document.querySelector("#roundsDisplay");
 const teamDisplay = document.querySelectorAll("#teamDisplay li");
 const buzzer = document.querySelector(".buzzer");
 
-
-
 const words = [
   ["Architect", "Create", "Build", "House", "Blueprint", "Design"],
   ["Mouse", "Cat", "Trap", "Cheese", "Tom & Jerry", "Animal"],
@@ -205,7 +203,6 @@ addScore = (team, score) => {
     finalScore[team] = [];
   }
   finalScore[team].push(score);
-  console.log(finalScore);
 };
 let computeResults = () => {
   let winner;
