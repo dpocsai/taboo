@@ -112,8 +112,8 @@ div.points {
   color: white;
 }
 main div.card {
-  width: 55vw;
-  min-height: 30vh;
+  width: 60vw;
+  min-height: 35vh;
   background-color: white;
 }
 main ul {
@@ -169,10 +169,7 @@ section {
   gap: 50px 0;
   text-align: center;
 }
-.right {
-  text-align: right;
-  padding-right: 10px;
-}
+
 label,
 output {
   color: white;
