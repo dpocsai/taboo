@@ -62,7 +62,7 @@ main {
   border-radius: 3%;
   display: flex;
   flex-wrap: wrap;
-  align-content: center;
+  align-content: space-around;
   justify-content: center;
   align-items: center;
 }
@@ -73,6 +73,13 @@ main button {
   font: inherit;
   cursor: pointer;
   color: white;
+  font-size: 2rem;
+}
+i.fas.fa-play,
+i.fas.fa-cog,
+i.fas.fa-concierge-bell {
+  font-size: 2.5rem;
+  margin-right: 10%;
 }
 main a {
   width: 100%;
@@ -101,11 +108,11 @@ main div div {
 div.points {
   width: 100%;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: white;
 }
 main div.card {
-  width: 60vw;
+  width: 55vw;
   min-height: 30vh;
   background-color: white;
 }
@@ -118,12 +125,12 @@ main li {
   text-align: center;
   text-transform: uppercase;
   color: black;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
 }
 main li.word {
   min-height: 8vh;
 
-  font-size: 1rem;
+  font-size: 1.3rem;
   background-color: #df7700;
 }
 main div.buttons button.start {
@@ -141,7 +148,7 @@ main div.team li.currentTeam {
   color: #df7700;
 }
 main div.team li {
-  font-size: 0.6rem;
+  font-size: 0.9rem;
   color: white;
   text-transform: capitalize;
 }
@@ -151,7 +158,7 @@ main div.buttons {
   justify-content: space-around;
 }
 main div.buttons button {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 section {
@@ -161,7 +168,6 @@ section {
   width: 70%;
   gap: 50px 0;
   text-align: center;
-  margin-top: 15%;
 }
 .right {
   text-align: right;
@@ -170,8 +176,9 @@ section {
 label,
 output {
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
+
 input[type="text"] {
   padding: 6px;
   margin-top: 3%;
@@ -198,11 +205,10 @@ input.disabledTextInput {
   background-color: darkgray;
 }
 input[type="range"] {
-  /* width: 100%; */
   margin: 5%;
   background-color: transparent;
   -webkit-appearance: none;
-  width: 35%;
+  width: 50%;
 }
 input[type="range"]:focus {
   outline: none;
@@ -212,13 +218,13 @@ input[type="range"]::-webkit-slider-runnable-track {
   border: 0;
   border-radius: 3.6px;
   width: 100%;
-  height: 15px;
+  height: 30px;
   cursor: pointer;
 }
 input[type="range"]::-webkit-slider-thumb {
-  margin-top: -3.25px;
-  width: 25px;
-  height: 25px;
+  margin-top: -10px;
+  width: 50px;
+  height: 50px;
   background: #df7700;
   border: 0;
   border-radius: 3px;
@@ -237,8 +243,8 @@ input[type="range"]::-moz-range-track {
   cursor: pointer;
 }
 input[type="range"]::-moz-range-thumb {
-  width: 15px;
-  height: 15px;
+  width: 50px;
+  height: 50px;
   background: #df7700;
   border: 0;
   border-radius: 3px;
@@ -264,8 +270,8 @@ input[type="range"]::-ms-fill-upper {
   border-radius: 7.2px;
 }
 input[type="range"]::-ms-thumb {
-  width: 15px;
-  height: 15px;
+  width: 50px;
+  height: 50px;
   background: #df7700;
   border: 0;
   border-radius: 3px;
@@ -297,5 +303,9 @@ input[type="submit"] {
   margin-top: 10px;
   padding: 0 5px;
   color: white;
-  font-size: 1.3rem;
+  font-size: 2rem;
+}
+#timeDisplay,
+#roundsDisplay {
+  font-size: 0.9rem;
 }

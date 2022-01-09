@@ -17,7 +17,7 @@ const generateTeams = (teams = "team 1") => {
 
   return teams
     .map((team, idx) => {
-      return team === "" ? `Team${idx + 1}` : team;
+      return team === "" ? `Team${idx + 1}`.padEnd(10) : team.padEnd(10);
     })
     .map((teamName) => {
       return { name: teamName, score: 0 };
