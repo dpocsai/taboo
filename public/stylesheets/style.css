@@ -21,20 +21,22 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
 main.rules p,
 main.rules li {
   font-size: 0.45rem;
   padding: 0 5px;
   text-transform: none;
   text-align: left;
+  color: white;
 }
 main.rules h2 {
   font-size: 0.6rem;
-  color: white;
+  color: #df7700;
 }
 .buzzer {
-  height: 300px;
-  width: 300px;
+  height: 650px;
+  width: 650px;
   background-color: #df7700;
   border-radius: 30%;
   border: 10px solid rgb(0, 44, 93);
