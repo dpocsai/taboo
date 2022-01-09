@@ -6,7 +6,6 @@ const { body, validationResult } = require("express-validator");
 const store = require("connect-loki");
 
 const TabooGame = require("./lib/taboo-game");
-const { ResultWithContext } = require("express-validator/src/chain");
 
 const app = express(); //sets up the express application object
 const LokiStore = store(session);
@@ -50,11 +49,13 @@ app.use(
 
 app.use(flash());
 app.use((req, res, next) => {
-  let tabooGame = req.session.tabooGame || new TabooGame(60, 3, 1, "Team 1");
+  let tabooGame = req.session.tabooGame || new TabooGame(60, 3, 1, ["Team 1"]);
   req.session.tabooGame = tabooGame;
+
   next();
 });
 app.get("/", (req, res) => {
+  console.log(req.session.tabooGame);
   res.render("layout");
 });
 app.get("/settings", (req, res) => {
@@ -66,12 +67,11 @@ app.post("/settings", (req, res) => {
   let teams = +req.body["team-range"];
   let teamsList = generateTeams(req.body.teams);
   req.session.tabooGame = new TabooGame(time, rounds, teams, teamsList);
-  console.log(req.session.tabooGame.teamsList);
   res.redirect("/play");
 });
 
 app.get("/play", (req, res) => {
-  res.render("play", { tabooGame: req.session.tabooGame });
+  // res.render("play", { tabooGame: req.session.tabooGame });
 });
 app.get("/rules", (req, res) => {
   res.render("rules");
