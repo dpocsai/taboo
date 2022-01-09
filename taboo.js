@@ -14,13 +14,12 @@ const generateTeams = (teams = "team 1") => {
   if (typeof teams === "string") {
     teams = [teams];
   }
-  console.log(teams);
+
   return teams
     .map((team, idx) => {
       return team === "" ? `Team${idx + 1}` : team;
     })
     .map((teamName) => {
-      console.log(teamName);
       return { name: teamName, score: 0 };
     });
 };
@@ -55,7 +54,6 @@ app.use((req, res, next) => {
   next();
 });
 app.get("/", (req, res) => {
-  console.log(req.session.tabooGame);
   res.render("layout");
 });
 app.get("/settings", (req, res) => {
@@ -71,7 +69,7 @@ app.post("/settings", (req, res) => {
 });
 
 app.get("/play", (req, res) => {
-  // res.render("play", { tabooGame: req.session.tabooGame });
+  res.render("play", { tabooGame: req.session.tabooGame });
 });
 app.get("/rules", (req, res) => {
   res.render("rules");
